@@ -10,20 +10,12 @@ namespace DBSCAN.Test
 	public class DbscanRBushIndexTests
 	{
 		#region Border Data Set
-		private ISpatialIndex<PointInfo<Point>> GetBorderIndex()
-		{
-			var pointInfos = DbscanTestData.Borders
-				.Select(p => new EnvelopePointInfo<Point>(p))
-				.ToList();
-			return new RBushSpatialIndex<EnvelopePointInfo<Point>>(pointInfos);
-		}
-
 		[Fact]
 		public void BorderTest1()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.Borders,
 					1.0,
 					4);
 
@@ -39,8 +31,8 @@ namespace DBSCAN.Test
 		public void BorderTest2()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.Borders,
 					2.0,
 					3);
 
@@ -53,8 +45,8 @@ namespace DBSCAN.Test
 		public void BorderTest3()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.Borders,
 					2.0,
 					4);
 
@@ -69,8 +61,8 @@ namespace DBSCAN.Test
 		public void BorderTest4()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.Borders,
 					2.0,
 					5);
 
@@ -83,20 +75,12 @@ namespace DBSCAN.Test
 		#endregion
 
 		#region Ring Data Set
-		private ISpatialIndex<PointInfo<Point>> GetRingIndex()
-		{
-			var pointInfos = DbscanTestData.RingDataset
-				.Select(p => new EnvelopePointInfo<Point>(p))
-				.ToList();
-			return new RBushSpatialIndex<EnvelopePointInfo<Point>>(pointInfos);
-		}
-
 		[Fact]
 		public void RingTest1()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.RingDataset,
 					1.0,
 					4);
 
@@ -108,8 +92,8 @@ namespace DBSCAN.Test
 		public void RingTest2()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.RingDataset,
 					1.01,
 					4);
 
@@ -121,8 +105,8 @@ namespace DBSCAN.Test
 		public void RingTest3()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.RingDataset,
 					1.3,
 					4);
 
@@ -134,8 +118,8 @@ namespace DBSCAN.Test
 		public void RingTest4()
 		{
 			var clusters =
-				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+				DBSCANRBush.CalculateClusters(
+					DbscanTestData.RingDataset,
 					0.99,
 					2);
 

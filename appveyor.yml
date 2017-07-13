@@ -28,7 +28,7 @@ after_test:
 artifacts:
   - path: DBSCAN\bin\Release\netstandard1.2\DBSCAN.dll
     name: DBSCAN.dll
-  - path: DBSCAN\bin\Release\netstandard1.2\DBSCAN.RBush.dll
+  - path: DBSCAN.RBush\bin\Release\netstandard1.2\DBSCAN.RBush.dll
     name: DBSCAN.RBush.dll
   - path: '**\*.nupkg'
 

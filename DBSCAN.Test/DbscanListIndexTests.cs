@@ -9,20 +9,12 @@ namespace DBSCAN.Test
 	public class DbscanListIndexTests
 	{
 		#region Border Data Set
-		private ISpatialIndex<PointInfo<Point>> GetBorderIndex()
-		{
-			var pointInfos = DbscanTestData.Borders
-				.Select(p => new PointInfo<Point>(p))
-				.ToList();
-			return new ListSpatialIndex<PointInfo<Point>>(pointInfos);
-		}
-
 		[Fact]
 		public void BorderTest1()
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+					DbscanTestData.Borders,
 					1.0,
 					4);
 
@@ -39,7 +31,7 @@ namespace DBSCAN.Test
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+					DbscanTestData.Borders,
 					2.0,
 					3);
 
@@ -53,7 +45,7 @@ namespace DBSCAN.Test
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+					DbscanTestData.Borders,
 					2.0,
 					4);
 
@@ -69,7 +61,7 @@ namespace DBSCAN.Test
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetBorderIndex(),
+					DbscanTestData.Borders,
 					2.0,
 					5);
 
@@ -82,20 +74,12 @@ namespace DBSCAN.Test
 		#endregion
 
 		#region Ring Data Set
-		private ISpatialIndex<PointInfo<Point>> GetRingIndex()
-		{
-			var pointInfos = DbscanTestData.RingDataset
-				.Select(p => new PointInfo<Point>(p))
-				.ToList();
-			return new ListSpatialIndex<PointInfo<Point>>(pointInfos);
-		}
-
 		[Fact]
 		public void RingTest1()
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+					DbscanTestData.RingDataset,
 					1.0,
 					4);
 
@@ -108,7 +92,7 @@ namespace DBSCAN.Test
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+					DbscanTestData.RingDataset,
 					1.01,
 					4);
 
@@ -121,7 +105,7 @@ namespace DBSCAN.Test
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+					DbscanTestData.RingDataset,
 					1.3,
 					4);
 
@@ -134,7 +118,7 @@ namespace DBSCAN.Test
 		{
 			var clusters =
 				DBSCAN.CalculateClusters(
-					GetRingIndex(),
+					DbscanTestData.RingDataset,
 					0.99,
 					2);
 
