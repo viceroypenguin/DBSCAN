@@ -14,6 +14,7 @@ before_build:
 
 build_script:
     - cmd: dotnet publish ./DBSCAN/DBSCAN.csproj -c Release
+    - cmd: dotnet publish ./DBSCAN.RBush/DBSCAN.RBush.csproj -c Release
 
 test_script:
     - cmd: cd DBSCAN.Test
@@ -22,10 +23,13 @@ test_script:
 
 after_test:
     - cmd: nuget pack ./DBSCAN/DBSCAN.nuspec -version %appveyor_build_version%
+    - cmd: nuget pack ./DBSCAN.RBush/DBSCAN.RBush.nuspec -version %appveyor_build_version%
 
 artifacts:
   - path: DBSCAN\bin\Release\netstandard1.2\DBSCAN.dll
     name: DBSCAN.dll
+  - path: DBSCAN\bin\Release\netstandard1.2\DBSCAN.RBush.dll
+    name: DBSCAN.RBush.dll
   - path: '**\*.nupkg'
 
 cache:
