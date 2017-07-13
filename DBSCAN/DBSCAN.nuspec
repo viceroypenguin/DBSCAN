@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DBSCAN</id>
+    <version>$version$</version>
+    <authors>Stuart Turner</authors>
+    <licenseUrl>https://github.com/viceroypenguin/DBSCAN/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/viceroypenguin/DBSCAN</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Implementation of the DBSCAN clustering algorithm</description>
+    <copyright>Copyright 2017 Turning Code, LLC</copyright>
+    <tags>.NET Clustering Algorithm DBSCAN</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\netstandard1.2\DBSCAN.dll" target="lib\netstandard1.2" />
+  </files>
+</package>
