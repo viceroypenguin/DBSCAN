@@ -25,7 +25,7 @@ namespace DBSCAN.RBush
 			this.tree = tree;
 		}
 
-		public IReadOnlyList<T> Search() => this.tree.Search().ToList();
+		public IReadOnlyList<T> Search() => this.tree.Search();
 
 		public static double EuclideanDistance(Point a, Point b)
 		{

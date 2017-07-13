@@ -11,7 +11,7 @@
     <copyright>Copyright 2017 Turning Code, LLC</copyright>
     <tags>.NET Algorithm DBSCAN RBush R-Treee</tags>
     <dependencies>
-      <dependency id="RBush" version="1.0.17" />
+      <dependency id="RBush" version="1.0.18" />
       <dependency id="DBSCAN" version="1.0" />
     </dependencies>
   </metadata>
