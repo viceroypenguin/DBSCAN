@@ -12,7 +12,7 @@
     <tags>.NET Algorithm DBSCAN RBush R-Treee</tags>
     <dependencies>
       <dependency id="RBush" version="1.0.17" />
-      <dependency id="DBSCAN" version="1" />
+      <dependency id="DBSCAN" version="1.0" />
     </dependencies>
   </metadata>
   <files>
