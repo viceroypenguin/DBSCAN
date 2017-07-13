@@ -8,6 +8,22 @@ namespace DBSCAN
 	public static class DBSCAN
 	{
 		public static ClusterSet<T> CalculateClusters<T>(
+			IList<T> data,
+			double epsilon,
+			int minimumPointsPerCluster)
+			where T : IPointData
+		{
+			var pointInfos = data
+				.Select(p => new PointInfo<T>(p))
+				.ToList();
+
+			return CalculateClusters(
+				new ListSpatialIndex<PointInfo<T>>(pointInfos),
+				epsilon,
+				minimumPointsPerCluster);
+		}
+
+		public static ClusterSet<T> CalculateClusters<T>(
 			ISpatialIndex<PointInfo<T>> index,
 			double epsilon,
 			int minimumPointsPerCluster)
@@ -46,7 +62,7 @@ namespace DBSCAN
 			};
 		}
 
-		private static Cluster<T> BuildCluster<T>(ISpatialIndex<PointInfo<T>> index, PointInfo<T> point, IList<PointInfo<T>> neighborhood, double epsilon, int minimumPointsPerCluster)
+		private static Cluster<T> BuildCluster<T>(ISpatialIndex<PointInfo<T>> index, PointInfo<T> point, IReadOnlyList<PointInfo<T>> neighborhood, double epsilon, int minimumPointsPerCluster)
 			where T : IPointData
 		{
 			var points = new List<T>() { point.Item };

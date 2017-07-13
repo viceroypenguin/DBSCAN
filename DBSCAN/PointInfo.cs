@@ -4,6 +4,7 @@ namespace DBSCAN
 {
 	public class PointInfo<T> : IPointData where T: IPointData
 	{
+		public PointInfo() { }
 		public PointInfo(T item) => this.Item = item;
 
 		public T Item { get; set; }

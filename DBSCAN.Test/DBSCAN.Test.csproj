@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DBSCAN.RBush\DBSCAN.RBush.csproj" />
     <ProjectReference Include="..\DBSCAN\DBSCAN.csproj" />
   </ItemGroup>
 

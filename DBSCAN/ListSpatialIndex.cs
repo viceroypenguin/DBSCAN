@@ -7,15 +7,15 @@ namespace DBSCAN
 {
 	public class ListSpatialIndex<T> : ISpatialIndex<T> where T : IPointData
 	{
-		private IList<T> list;
+		private IReadOnlyList<T> list;
 		private Func<Point, Point, double> distanceFunction;
 
-		public ListSpatialIndex(IList<T> data)
+		public ListSpatialIndex(IEnumerable<T> data)
 			: this(data, EuclideanDistance) { }
 
-		public ListSpatialIndex(IList<T> data, Func<Point, Point, double> distanceFunction)
+		public ListSpatialIndex(IEnumerable<T> data, Func<Point, Point, double> distanceFunction)
 		{
-			this.list = data;
+			this.list = data.ToList();
 			this.distanceFunction = distanceFunction;
 		}
 
@@ -26,8 +26,8 @@ namespace DBSCAN
 			return Math.Sqrt(xDist * xDist + yDist * yDist);
 		}
 
-		public IList<T> Search() => list;
-		public IList<T> Search(Point p, double epsilon) =>
+		public IReadOnlyList<T> Search() => list;
+		public IReadOnlyList<T> Search(Point p, double epsilon) =>
 			list
 				.Where(q => distanceFunction(p, q.Point) < epsilon)
 				.ToList();

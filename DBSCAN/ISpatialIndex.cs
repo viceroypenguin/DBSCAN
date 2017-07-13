@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DBSCAN
 {
-	public interface ISpatialIndex<T>
+	public interface ISpatialIndex<out T>
 	{
-		IList<T> Search();
-		IList<T> Search(Point p, double epsilon);
+		IReadOnlyList<T> Search();
+		IReadOnlyList<T> Search(Point p, double epsilon);
 	}
 }

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DBSCAN.RBush</id>
+    <version>$version$</version>
+    <authors>Stuart Turner</authors>
+    <licenseUrl>https://github.com/viceroypenguin/DBSCAN/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/viceroypenguin/DBSCAN</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Boilerplate code to connect RBush with DBSCAN</description>
+    <copyright>Copyright 2017 Turning Code, LLC</copyright>
+    <tags>.NET Algorithm DBSCAN RBush R-Treee</tags>
+    <dependencies>
+      <dependency id="RBush" version="1.0.17" />
+      <dependency id="DBSCAN" version="1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\netstandard1.2\DBSCAN.RBush.dll" target="lib\netstandard1.2" />
+  </files>
+</package>
