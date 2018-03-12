@@ -7,13 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBSCAN", "DBSCAN\DBSCAN.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AED5B214-C54E-423B-9A6E-F0A7F55860F2}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		appveyor.yml = appveyor.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSCAN.Test", "DBSCAN.Test\DBSCAN.Test.csproj", "{DFC7028A-4566-45D0-85D3-1932A3FBD34A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBSCAN.Test", "DBSCAN.Test\DBSCAN.Test.csproj", "{DFC7028A-4566-45D0-85D3-1932A3FBD34A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSCAN.RBush", "DBSCAN.RBush\DBSCAN.RBush.csproj", "{F226E9AF-7FAB-44AE-9D39-1F3E91F9C747}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBSCAN.RBush", "DBSCAN.RBush\DBSCAN.RBush.csproj", "{F226E9AF-7FAB-44AE-9D39-1F3E91F9C747}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +37,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA997708-C512-4004-94CA-63B3CAC3C740}
 	EndGlobalSection
 EndGlobal
