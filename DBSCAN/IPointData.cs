@@ -2,6 +2,6 @@
 {
 	public interface IPointData
 	{
-		Point Point { get; }
+		ref readonly Point Point { get; }
 	}
 }

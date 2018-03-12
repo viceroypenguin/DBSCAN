@@ -4,24 +4,34 @@ using System.Text;
 
 namespace DBSCAN.Test
 {
-    public static class DbscanTestData
+	public static class DbscanTestData
 	{
-		public static IList<Point> Borders = new List<Point>
+		public class _Point : IPointData
 		{
-			new Point { X = 0, Y = 0, },
-			new Point { X = -1.8, Y = 0, },
-			new Point { X = -2.3, Y = 0, },
-			new Point { X = -2.3, Y = 0.5, },
-			new Point { X = -2.3, Y = -0.5, },
-			new Point { X = 1.8, Y = 0, },
-			new Point { X = 2.3, Y = 0, },
-			new Point { X = 2.3, Y = 0.5, },
-			new Point { X = 2.3, Y = -0.5, },
+			private readonly Point _point;
+
+			public _Point(double X, double Y) =>
+				_point = new Point(X, Y);
+
+			public ref readonly Point Point => ref _point;
+		}
+
+		public static IList<_Point> Borders = new List<_Point>
+		{
+			new _Point(X: 0, Y: 0),
+			new _Point(X: -1.8, Y: 0),
+			new _Point(X: -2.3, Y: 0),
+			new _Point(X: -2.3, Y: 0.5),
+			new _Point(X: -2.3, Y: -0.5),
+			new _Point(X: 1.8, Y: 0),
+			new _Point(X: 2.3, Y: 0),
+			new _Point(X: 2.3, Y: 0.5),
+			new _Point(X: 2.3, Y: -0.5),
 		};
 
-		private static List<Point> BuildRingDataset()
+		private static List<_Point> BuildRingDataset()
 		{
-			var points = new List<Point>();
+			var points = new List<_Point>();
 
 			var rows = 6;
 			var cols = 5;
@@ -35,18 +45,18 @@ namespace DBSCAN.Test
 					var x0 = -15 + (30 / (rows + 1)) * (row + 1);
 					var y0 = -12 + (24 / (cols + 1)) * (col + 1);
 
-					points.Add(new Point { X = x0, Y = y0, });
+					points.Add(new _Point(X: x0, Y: y0));
 					for (var i = 0; i < MinPoints; i++)
 					{
 						var x = x0 + eps * Math.Sin(2 * Math.PI * i / MinPoints);
 						var y = y0 + eps * Math.Cos(2 * Math.PI * i / MinPoints);
-						points.Add(new Point { X = x, Y = y, });
+						points.Add(new _Point(X: x, Y: y));
 					}
 				}
 			}
 			return points;
 		}
 
-		public static IList<Point> RingDataset = BuildRingDataset();
+		public static IList<_Point> RingDataset = BuildRingDataset();
 	}
 }

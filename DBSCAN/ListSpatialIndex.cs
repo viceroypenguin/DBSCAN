@@ -7,19 +7,21 @@ namespace DBSCAN
 {
 	public class ListSpatialIndex<T> : ISpatialIndex<T> where T : IPointData
 	{
+		public delegate double DistanceFunction(in Point a, in Point b);
+
 		private IReadOnlyList<T> list;
-		private Func<Point, Point, double> distanceFunction;
+		private DistanceFunction distanceFunction;
 
 		public ListSpatialIndex(IEnumerable<T> data)
 			: this(data, EuclideanDistance) { }
 
-		public ListSpatialIndex(IEnumerable<T> data, Func<Point, Point, double> distanceFunction)
+		public ListSpatialIndex(IEnumerable<T> data, DistanceFunction distanceFunction)
 		{
 			this.list = data.ToList();
 			this.distanceFunction = distanceFunction;
 		}
 
-		public static double EuclideanDistance(Point a, Point b)
+		public static double EuclideanDistance(in Point a, in Point b)
 		{
 			var xDist = b.X - a.X;
 			var yDist = b.Y - a.Y;
@@ -27,9 +29,13 @@ namespace DBSCAN
 		}
 
 		public IReadOnlyList<T> Search() => list;
-		public IReadOnlyList<T> Search(Point p, double epsilon) =>
-			list
-				.Where(q => distanceFunction(p, q.Point) < epsilon)
-				.ToList();
+		public IReadOnlyList<T> Search(in Point p, double epsilon)
+		{
+			var l = new List<T>();
+			foreach (var q in list)
+				if (distanceFunction(p, q.Point) < epsilon)
+					l.Add(q);
+			return l;
+		}
 	}
 }

@@ -4,11 +4,15 @@ using System.Text;
 
 namespace DBSCAN
 {
-    public struct Point : IPointData
-    {
-		public double X;
-		public double Y;
+	public readonly struct Point
+	{
+		public double X { get; }
+		public double Y { get; }
 
-		Point IPointData.Point => this;
-    }
+		public Point(double X, double Y)
+		{
+			this.X = X;
+			this.Y = Y;
+		}
+	}
 }
