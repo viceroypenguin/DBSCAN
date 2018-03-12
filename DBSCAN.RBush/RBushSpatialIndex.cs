@@ -9,13 +9,15 @@ namespace DBSCAN.RBush
 	public class RBushSpatialIndex<T> : ISpatialIndex<T>
 		where T : ISpatialData, IPointData
 	{
+		public delegate double DistanceFunction(in Point a, in Point b);
+
 		private RBush<T> tree;
-		private Func<Point, Point, double> distanceFunction;
+		private DistanceFunction distanceFunction;
 
 		public RBushSpatialIndex(IEnumerable<T> data)
 			: this(data, EuclideanDistance) { }
 
-		public RBushSpatialIndex(IEnumerable<T> data, Func<Point, Point, double> distanceFunction)
+		public RBushSpatialIndex(IEnumerable<T> data, DistanceFunction distanceFunction)
 		{
 			this.distanceFunction = distanceFunction;
 
@@ -27,26 +29,26 @@ namespace DBSCAN.RBush
 
 		public IReadOnlyList<T> Search() => this.tree.Search();
 
-		public static double EuclideanDistance(Point a, Point b)
+		public static double EuclideanDistance(in Point a, in Point b)
 		{
 			var xDist = b.X - a.X;
 			var yDist = b.Y - a.Y;
 			return Math.Sqrt(xDist * xDist + yDist * yDist);
 		}
 
-		public IReadOnlyList<T> Search(Point p, double epsilon)
+		public IReadOnlyList<T> Search(in Point p, double epsilon)
 		{
-			var rectangle = new Envelope
-			{
-				MinX = p.X - epsilon,
-				MinY = p.Y - epsilon,
-				MaxX = p.X + epsilon,
-				MaxY = p.Y + epsilon,
-			};
+			var rectangle = new Envelope(
+				minX: p.X - epsilon,
+				minY: p.Y - epsilon,
+				maxX: p.X + epsilon,
+				maxY: p.Y + epsilon);
 
-			return this.tree.Search(rectangle)
-				.Where(q => distanceFunction(p, q.Point) < epsilon)
-				.ToList();
+			var l = new List<T>();
+			foreach (var q in this.tree.Search(rectangle))
+				if (distanceFunction(p, q.Point) < epsilon)
+					l.Add(q);
+			return l;
 		}
 	}
 }

@@ -9,10 +9,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Boilerplate code to connect RBush with DBSCAN</description>
     <copyright>Copyright 2017 Turning Code, LLC</copyright>
-    <tags>.NET Algorithm DBSCAN RBush R-Treee</tags>
+    <tags>.NET Algorithm DBSCAN RBush R-Tree</tags>
     <dependencies>
-      <dependency id="RBush" version="1.0.18" />
-      <dependency id="DBSCAN" version="1.0" />
+      <dependency id="RBush" version="2.0" />
+      <dependency id="DBSCAN" version="2.0" />
     </dependencies>
   </metadata>
   <files>

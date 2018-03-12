@@ -8,15 +8,17 @@ namespace DBSCAN.RBush
 	public class EnvelopePointInfo<T> : PointInfo<T>, ISpatialData
 		where T: IPointData
 	{
-		public EnvelopePointInfo() { }
-		public EnvelopePointInfo(T item) : base(item) { }
+		private readonly Envelope _envelope;
 
-		public Envelope Envelope => new Envelope
+		public EnvelopePointInfo(T item) : base(item)
 		{
-			MinX = Item.Point.X,
-			MinY = Item.Point.Y,
-			MaxX = Item.Point.X,
-			MaxY = Item.Point.Y,
-		};
+			_envelope = new Envelope(
+				minX: item.Point.X,
+				minY: item.Point.Y,
+				maxX: item.Point.X,
+				maxY: item.Point.Y);
+		}
+
+		public ref readonly Envelope Envelope => ref _envelope;
 	}
 }
