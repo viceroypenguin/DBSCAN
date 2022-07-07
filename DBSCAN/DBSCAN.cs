@@ -38,7 +38,7 @@ namespace DBSCAN
 				if (p.Visited) continue;
 
 				p.Visited = true;
-				var candidates = index.Search(p.Point, epsilon);
+				var candidates = index.Search(p, epsilon);
 
 				if (candidates.Count >= minimumPointsPerCluster)
 				{
@@ -76,7 +76,7 @@ namespace DBSCAN
 				if (!newPoint.Visited)
 				{
 					newPoint.Visited = true;
-					var newNeighbors = index.Search(newPoint.Point, epsilon);
+					var newNeighbors = index.Search(newPoint, epsilon);
 					if (newNeighbors.Count >= minimumPointsPerCluster)
 						foreach (var p in newNeighbors)
 							queue.Enqueue(p);
