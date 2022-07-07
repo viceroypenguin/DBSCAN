@@ -36,17 +36,17 @@ namespace DBSCAN.RBush
 			return Math.Sqrt(xDist * xDist + yDist * yDist);
 		}
 
-		public IReadOnlyList<T> Search(in Point p, double epsilon)
+		public IReadOnlyList<T> Search(in IPointData p, double epsilon)
 		{
 			var rectangle = new Envelope(
-				minX: p.X - epsilon,
-				minY: p.Y - epsilon,
-				maxX: p.X + epsilon,
-				maxY: p.Y + epsilon);
+				minX: p.Point.X - epsilon,
+				minY: p.Point.Y - epsilon,
+				maxX: p.Point.X + epsilon,
+				maxY: p.Point.Y + epsilon);
 
 			var l = new List<T>();
 			foreach (var q in this.tree.Search(rectangle))
-				if (distanceFunction(p, q.Point) < epsilon)
+				if (distanceFunction(p.Point, q.Point) < epsilon)
 					l.Add(q);
 			return l;
 		}

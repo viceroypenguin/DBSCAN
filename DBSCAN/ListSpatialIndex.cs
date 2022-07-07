@@ -29,11 +29,11 @@ namespace DBSCAN
 		}
 
 		public IReadOnlyList<T> Search() => list;
-		public IReadOnlyList<T> Search(in Point p, double epsilon)
+		public IReadOnlyList<T> Search(in IPointData p, double epsilon)
 		{
 			var l = new List<T>();
 			foreach (var q in list)
-				if (distanceFunction(p, q.Point) < epsilon)
+				if (distanceFunction(p.Point, q.Point) < epsilon)
 					l.Add(q);
 			return l;
 		}
