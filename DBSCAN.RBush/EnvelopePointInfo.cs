@@ -13,10 +13,10 @@ namespace DBSCAN.RBush
 		public EnvelopePointInfo(T item) : base(item)
 		{
 			_envelope = new Envelope(
-				minX: item.Point.X,
-				minY: item.Point.Y,
-				maxX: item.Point.X,
-				maxY: item.Point.Y);
+				MinX: item.Point.X,
+				MinY: item.Point.Y,
+				MaxX: item.Point.X,
+				MaxY: item.Point.Y);
 		}
 
 		public ref readonly Envelope Envelope => ref _envelope;

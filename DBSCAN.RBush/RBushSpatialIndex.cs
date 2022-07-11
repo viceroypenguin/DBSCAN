@@ -39,10 +39,10 @@ namespace DBSCAN.RBush
 		public IReadOnlyList<T> Search(in IPointData p, double epsilon)
 		{
 			var rectangle = new Envelope(
-				minX: p.Point.X - epsilon,
-				minY: p.Point.Y - epsilon,
-				maxX: p.Point.X + epsilon,
-				maxY: p.Point.Y + epsilon);
+				MinX: p.Point.X - epsilon,
+				MinY: p.Point.Y - epsilon,
+				MaxX: p.Point.X + epsilon,
+				MaxY: p.Point.Y + epsilon);
 
 			var l = new List<T>();
 			foreach (var q in this.tree.Search(rectangle))
