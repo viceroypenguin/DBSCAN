@@ -1,4 +1,4 @@
-﻿namespace DBSCAN;
+﻿namespace Dbscan;
 
 public interface IPointData
 {

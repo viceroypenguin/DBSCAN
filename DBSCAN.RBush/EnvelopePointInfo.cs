@@ -1,6 +1,6 @@
 ﻿using RBush;
 
-namespace DBSCAN.RBush;
+namespace Dbscan.RBush;
 
 public class EnvelopePointInfo<T> : PointInfo<T>, ISpatialData
 	where T: IPointData

@@ -1,6 +1,6 @@
 ﻿using RBush;
 
-namespace DBSCAN.RBush;
+namespace Dbscan.RBush;
 
 public class RBushSpatialIndex<T> : ISpatialIndex<T>
 	where T : ISpatialData, IPointData

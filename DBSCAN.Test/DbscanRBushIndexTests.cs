@@ -1,7 +1,7 @@
-﻿using DBSCAN.RBush;
+﻿using Dbscan.RBush;
 using Xunit;
 
-namespace DBSCAN.Test;
+namespace Dbscan.Test;
 
 public class DbscanRBushIndexTests
 {
@@ -10,7 +10,7 @@ public class DbscanRBushIndexTests
 	public void BorderTest1()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.Borders,
 				1.0,
 				4);
@@ -27,7 +27,7 @@ public class DbscanRBushIndexTests
 	public void BorderTest2()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.Borders,
 				2.0,
 				3);
@@ -41,7 +41,7 @@ public class DbscanRBushIndexTests
 	public void BorderTest3()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.Borders,
 				2.0,
 				4);
@@ -57,7 +57,7 @@ public class DbscanRBushIndexTests
 	public void BorderTest4()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.Borders,
 				2.0,
 				5);
@@ -75,7 +75,7 @@ public class DbscanRBushIndexTests
 	public void RingTest1()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.RingDataset,
 				1.0,
 				4);
@@ -88,7 +88,7 @@ public class DbscanRBushIndexTests
 	public void RingTest2()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.RingDataset,
 				1.01,
 				4);
@@ -101,7 +101,7 @@ public class DbscanRBushIndexTests
 	public void RingTest3()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.RingDataset,
 				1.3,
 				4);
@@ -114,7 +114,7 @@ public class DbscanRBushIndexTests
 	public void RingTest4()
 	{
 		var clusters =
-			DBSCANRBush.CalculateClusters(
+			DbscanRBush.CalculateClusters(
 				DbscanTestData.RingDataset,
 				0.99,
 				2);

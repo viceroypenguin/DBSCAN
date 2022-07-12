@@ -1,4 +1,4 @@
-﻿namespace DBSCAN.Test;
+﻿namespace Dbscan.Test;
 
 public static class DbscanTestData
 {

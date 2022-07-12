@@ -1,4 +1,4 @@
-﻿namespace DBSCAN;
+﻿namespace Dbscan;
 
 public class ListSpatialIndex<T> : ISpatialIndex<T> where T : IPointData
 {

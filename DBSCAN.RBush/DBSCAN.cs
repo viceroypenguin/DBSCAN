@@ -1,6 +1,6 @@
-﻿namespace DBSCAN.RBush;
+﻿namespace Dbscan.RBush;
 
-public static class DBSCANRBush
+public static class DbscanRBush
 {
 	public static ClusterSet<T> CalculateClusters<T>(
 		IList<T> data,
@@ -12,7 +12,7 @@ public static class DBSCANRBush
 			.Select(p => new EnvelopePointInfo<T>(p))
 			.ToList();
 
-		return DBSCAN.CalculateClusters(
+		return Dbscan.CalculateClusters(
 			new RBushSpatialIndex<EnvelopePointInfo<T>>(pointInfos),
 			epsilon,
 			minimumPointsPerCluster);

@@ -1,6 +1,6 @@
-﻿namespace DBSCAN;
+﻿namespace Dbscan;
 
-public static class DBSCAN
+public static class Dbscan
 {
 	public static ClusterSet<T> CalculateClusters<T>(
 		IList<T> data,

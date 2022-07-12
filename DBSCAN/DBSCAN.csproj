@@ -2,25 +2,25 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>netstandard1.2;netcoreapp3.1;net6.0</TargetFrameworks>
-		<AssemblyName>DBSCAN</AssemblyName>
-		<RootNamespace>DBSCAN</RootNamespace>
+		<AssemblyName>Dbscan</AssemblyName>
+		<RootNamespace>Dbscan</RootNamespace>
 
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup Label="NuGet">
-		<Title>DBSCAN.RBush</Title>
-		<Description>Boilerplate code to connect RBush with DBSCAN.</Description>
+		<Title>Dbscan</Title>
+		<Description>Implementation of the Dbscan clustering algorithm</Description>
 
 		<Authors>viceroypenguin</Authors>
-		<PackageTags>.NET Algorithm DBSCAN RBush R-Tree</PackageTags>
+		<PackageTags>.NET Clustering Algorithm Dbscan</PackageTags>
 		<Copyright>Copyright © 2017-2022 Turning Code, LLC (and others)</Copyright>
 
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<RepositoryUrl>https://github.com/viceroypenguin/DBSCAN</RepositoryUrl>
+		<RepositoryUrl>https://github.com/viceroypenguin/Dbscan</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 
 		<IncludeSymbols>true</IncludeSymbols>

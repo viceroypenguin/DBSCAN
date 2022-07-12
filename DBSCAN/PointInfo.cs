@@ -1,4 +1,4 @@
-﻿namespace DBSCAN;
+﻿namespace Dbscan;
 
 public class PointInfo<T> : IPointData where T: IPointData
 {
