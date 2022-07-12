@@ -1,9 +1,22 @@
 ﻿namespace Dbscan;
 
+/// <summary>
+/// Contains static methods to run the DBSCAN algorithm.
+/// </summary>
 public static class Dbscan
 {
+	/// <summary>
+	/// Run the DBSCAN algorithm on a collection of points, using the default index
+	/// (<see cref="ListSpatialIndex{T}"/>).
+	/// </summary>
+	/// <typeparam name="T">The type of elements to cluster.</typeparam>
+	/// <param name="data">The collection of elements to cluster.</param>
+	/// <param name="epsilon">The epsilon parameter to use in the algorithm; used to determine the radius of the circle to find neighboring points.</param>
+	/// <param name="minimumPointsPerCluster">The minimum number of points required to create a cluster or to add additional points to the cluster.</param>
+	/// <returns>A <see cref="ClusterSet{T}"/> containing the list of <see cref="Cluster{T}"/>s and a list of unclustered points.</returns>
+	/// <remarks>This method is an O(N^2) operation, where N is the Length of the dataset</remarks>
 	public static ClusterSet<T> CalculateClusters<T>(
-		IList<T> data,
+		IEnumerable<T> data,
 		double epsilon,
 		int minimumPointsPerCluster)
 		where T : IPointData
@@ -18,6 +31,14 @@ public static class Dbscan
 			minimumPointsPerCluster);
 	}
 
+	/// <summary>
+	/// Run the DBSCAN algorithm on a collection of points, the specified pre-filled <see cref="ISpatialIndex{T}"/>.
+	/// </summary>
+	/// <typeparam name="T">The type of elements to cluster.</typeparam>
+	/// <param name="index">The collection of elements to cluster.</param>
+	/// <param name="epsilon">The epsilon parameter to use in the algorithm; used to determine the radius of the circle to find neighboring points.</param>
+	/// <param name="minimumPointsPerCluster">The minimum number of points required to create a cluster or to add additional points to the cluster.</param>
+	/// <returns>A <see cref="ClusterSet{T}"/> containing the list of <see cref="Cluster{T}"/>s and a list of unclustered points.</returns>
 	public static ClusterSet<T> CalculateClusters<T>(
 		ISpatialIndex<PointInfo<T>> index,
 		double epsilon,
@@ -51,7 +72,7 @@ public static class Dbscan
 		{
 			Clusters = clusters,
 			UnclusteredObjects = points
-				.Where(p => p.Cluster == null)
+				.Where(p => !p.Clustered)
 				.Select(p => p.Item)
 				.ToList(),
 		};
@@ -61,8 +82,7 @@ public static class Dbscan
 		where T : IPointData
 	{
 		var points = new List<T>() { point.Item };
-		var cluster = new Cluster<T>() { Objects = points };
-		point.Cluster = cluster;
+		point.Clustered = true;
 
 		var queue = new Queue<PointInfo<T>>(neighborhood);
 		while (queue.Any())
@@ -77,14 +97,14 @@ public static class Dbscan
 						queue.Enqueue(p);
 			}
 
-			if (newPoint.Cluster == null)
+			if (!newPoint.Clustered)
 			{
-				newPoint.Cluster = cluster;
+				newPoint.Clustered = true;
 				points.Add(newPoint.Item);
 			}
 		}
 
-		return cluster;
+		return new Cluster<T> { Objects = points, };
 	}
 
 }

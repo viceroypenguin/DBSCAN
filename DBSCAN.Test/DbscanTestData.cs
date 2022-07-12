@@ -2,32 +2,30 @@
 
 public static class DbscanTestData
 {
-	public class _Point : IPointData
+	public class SimplePoint : IPointData
 	{
-		private readonly Point _point;
+		public SimplePoint(double x, double y) =>
+			Point = new Point(x, y);
 
-		public _Point(double X, double Y) =>
-			_point = new Point(X, Y);
-
-		public ref readonly Point Point => ref _point;
+		public Point Point { get; }
 	}
 
-	public static IList<_Point> Borders = new List<_Point>
+	internal static IList<SimplePoint> Borders = new List<SimplePoint>
 	{
-		new _Point(X: 0, Y: 0),
-		new _Point(X: -1.8, Y: 0),
-		new _Point(X: -2.3, Y: 0),
-		new _Point(X: -2.3, Y: 0.5),
-		new _Point(X: -2.3, Y: -0.5),
-		new _Point(X: 1.8, Y: 0),
-		new _Point(X: 2.3, Y: 0),
-		new _Point(X: 2.3, Y: 0.5),
-		new _Point(X: 2.3, Y: -0.5),
+		new SimplePoint(x: 0, y: 0),
+		new SimplePoint(x: -1.8, y: 0),
+		new SimplePoint(x: -2.3, y: 0),
+		new SimplePoint(x: -2.3, y: 0.5),
+		new SimplePoint(x: -2.3, y: -0.5),
+		new SimplePoint(x: 1.8, y: 0),
+		new SimplePoint(x: 2.3, y: 0),
+		new SimplePoint(x: 2.3, y: 0.5),
+		new SimplePoint(x: 2.3, y: -0.5),
 	};
 
-	private static List<_Point> BuildRingDataset()
+	private static List<SimplePoint> BuildRingDataset()
 	{
-		var points = new List<_Point>();
+		var points = new List<SimplePoint>();
 
 		var rows = 6;
 		var cols = 5;
@@ -35,23 +33,23 @@ public static class DbscanTestData
 		{
 			for (var col = 0; col < cols; col++)
 			{
-				var MinPoints = row;
+				var minPoints = row;
 				var eps = 1.25 - col * 0.25;
 
 				var x0 = -15 + (30 / (rows + 1)) * (row + 1);
 				var y0 = -12 + (24 / (cols + 1)) * (col + 1);
 
-				points.Add(new _Point(X: x0, Y: y0));
-				for (var i = 0; i < MinPoints; i++)
+				points.Add(new SimplePoint(x: x0, y: y0));
+				for (var i = 0; i < minPoints; i++)
 				{
-					var x = x0 + eps * Math.Sin(2 * Math.PI * i / MinPoints);
-					var y = y0 + eps * Math.Cos(2 * Math.PI * i / MinPoints);
-					points.Add(new _Point(X: x, Y: y));
+					var x = x0 + eps * Math.Sin(2 * Math.PI * i / minPoints);
+					var y = y0 + eps * Math.Cos(2 * Math.PI * i / minPoints);
+					points.Add(new SimplePoint(x: x, y: y));
 				}
 			}
 		}
 		return points;
 	}
 
-	public static IList<_Point> RingDataset = BuildRingDataset();
+	internal static IList<SimplePoint> RingDataset = BuildRingDataset();
 }

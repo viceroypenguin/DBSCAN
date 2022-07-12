@@ -1,12 +1,35 @@
 ﻿namespace Dbscan;
 
-public class PointInfo<T> : IPointData where T: IPointData
+/// <summary>
+/// A holding class for algorithm related information about a point.
+/// </summary>
+/// <typeparam name="T">The type of the element this object is holding.</typeparam>
+public class PointInfo<T> : IPointData where T : IPointData
 {
-	public PointInfo(T item) => this.Item = item;
+	/// <summary>
+	/// Initializes a new <see cref="PointInfo{T}"/> with the object it is holding.
+	/// </summary>
+	/// <param name="item"></param>
+	public PointInfo(T item) =>
+		this.Item = item;
 
+	/// <summary>
+	/// The object being held by this holder
+	/// </summary>
 	public T Item { get; }
-	public Cluster<T> Cluster { get; set; }
+
+	/// <summary>
+	/// Whether or not this point has been clustered
+	/// </summary>
+	public bool Clustered { get; set; }
+
+	/// <summary>
+	/// Whether or not this point has been visited
+	/// </summary>
 	public bool Visited { get; set; }
 
-	public ref readonly Point Point => ref Item.Point;
+	/// <summary>
+	/// The location of this point
+	/// </summary>
+	public Point Point => Item.Point;
 }
