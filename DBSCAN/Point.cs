@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace DBSCAN;
 
-namespace DBSCAN
+public readonly struct Point
 {
-	public readonly struct Point
-	{
-		public double X { get; }
-		public double Y { get; }
+	public double X { get; }
+	public double Y { get; }
 
-		public Point(double X, double Y)
-		{
-			this.X = X;
-			this.Y = Y;
-		}
+	public Point(double X, double Y)
+	{
+		this.X = X;
+		this.Y = Y;
 	}
 }

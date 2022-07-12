@@ -1,7 +1,6 @@
-﻿namespace DBSCAN
+﻿namespace DBSCAN;
+
+public interface IPointData
 {
-	public interface IPointData
-	{
-		ref readonly Point Point { get; }
-	}
+	ref readonly Point Point { get; }
 }
