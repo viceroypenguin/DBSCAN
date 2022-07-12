@@ -16,11 +16,16 @@ K-d tree can reduce time to find neighbors to O(log n), which cuts the overall
 clustering to O(n log n).
 
 A default spatial index using the above is provided in the primary library as
-`ListSpatialIndex<>`. Alternatively, an R-Tree library is available in the 
-secondary library as `RBushSpatialIndex<>`. 
+`ListSpatialIndex<T>`. Alternatively, an R-Tree library is available in the 
+secondary library as `RBushSpatialIndex<T>`. 
 
 
-[![Build status](https://ci.appveyor.com/api/projects/status/gd5mg5pfp5ho6607/branch/master?svg=true)](https://ci.appveyor.com/project/viceroypenguin/dbscan/branch/master)
+[![Build status](https://github.com/viceroypenguin/DBSCAN/actions/workflows/build.yml/badge.svg)](https://github.com/viceroypenguin/DBSCAN/actions)
+[![License](https://img.shields.io/github/license/viceroypenguin/DBSCAN)](license)
+
+DBSCAN: [![NuGet](https://img.shields.io/nuget/v/DBSCAN.svg?style=plastic)](https://www.nuget.org/packages/DBSCAN/)
+
+DBSCAN.RBush: [![NuGet](https://img.shields.io/nuget/v/DBSCAN.RBush.svg?style=plastic)](https://www.nuget.org/packages/DBSCAN.RBush/)
 
 ## Install
 
@@ -34,14 +39,14 @@ Convenience functions have been provided in both libraries. Call the
 `CalculateClusters()` function in either `DBSCAN` or `DBSCAN.RBush`.
 
 ```csharp
-var clusters = DBSCAN.CalculateClusters(
+var clusters = Dbscan.CalculateClusters(
     data,
     epsilon: 1.0,
     minimumPointsPerCluster: 4);
 ```
 or
 ```csharp
-var clusters = DBSCANRBush.CalculateClusters(
+var clusters = DbscanRBush.CalculateClusters(
     data,
     epsilon: 1.0,
     minimumPointsPerCluster: 4);
