@@ -39,4 +39,10 @@
     <PackageReference Include="MinVer" Version="4.1.0" PrivateAssets="All" />
   </ItemGroup>
 
+	<PropertyGroup Label="MinVer">
+		<MinVerAutoIncrement>minor</MinVerAutoIncrement>
+		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
+		<MinVerTagPrefix>v</MinVerTagPrefix>
+	</PropertyGroup>
+
 </Project>
