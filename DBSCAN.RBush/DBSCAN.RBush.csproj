@@ -39,4 +39,8 @@
 		<ProjectReference Include="..\DBSCAN\DBSCAN.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<None Include="readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
 </Project>
