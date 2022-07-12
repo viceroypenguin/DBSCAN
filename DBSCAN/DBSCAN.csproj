@@ -4,8 +4,6 @@
     <TargetFrameworks>netstandard1.2;netcoreapp3.1;net6.0</TargetFrameworks>
     <AssemblyName>Dbscan</AssemblyName>
     <RootNamespace>Dbscan</RootNamespace>
-
-    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet">
