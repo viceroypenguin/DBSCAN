@@ -1,7 +1,12 @@
-﻿namespace DBSCAN
+﻿namespace Dbscan;
+
+/// <summary>
+/// Exposes a <see cref="Point"/> that identifies where an object is.
+/// </summary>
+public interface IPointData
 {
-	public interface IPointData
-	{
-		ref readonly Point Point { get; }
-	}
+	/// <summary>
+	/// The location of the current object.
+	/// </summary>
+	Point Point { get; }
 }

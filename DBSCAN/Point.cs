@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Runtime.InteropServices;
 
-namespace DBSCAN
-{
-	public readonly struct Point
-	{
-		public double X { get; }
-		public double Y { get; }
+namespace Dbscan;
 
-		public Point(double X, double Y)
-		{
-			this.X = X;
-			this.Y = Y;
-		}
-	}
-}
+/// <summary>
+/// A point on the 2-d plane.
+/// </summary>
+/// <param name="X">The x-coordinate of the point.</param>
+/// <param name="Y">The y-coordinate of the point.</param>
+[StructLayout(LayoutKind.Sequential)]
+public readonly record struct Point(double X, double Y);

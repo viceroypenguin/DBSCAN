@@ -1,9 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.2</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <LangVersion>latest</LangVersion>
+    <TargetFrameworks>netstandard1.2;netcoreapp3.1;net6.0</TargetFrameworks>
+    <AssemblyName>Dbscan</AssemblyName>
+    <RootNamespace>Dbscan</RootNamespace>
   </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <Title>Dbscan</Title>
+    <Description>Implementation of the Dbscan clustering algorithm</Description>
+
+    <Authors>viceroypenguin</Authors>
+    <PackageTags>.NET Clustering Algorithm Dbscan</PackageTags>
+    <Copyright>Copyright © 2017-2022 Turning Code, LLC (and others)</Copyright>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/viceroypenguin/Dbscan</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IsExternalInit" Version="1.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="MinVer" Version="4.1.0" PrivateAssets="All" />
+  </ItemGroup>
 
 </Project>
