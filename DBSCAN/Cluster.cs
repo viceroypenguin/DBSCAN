@@ -9,5 +9,5 @@ public class Cluster<T>
 	/// <summary>
 	/// The items that have been clustered.
 	/// </summary>
-	public IReadOnlyList<T> Objects { get; internal set; } = default!;
+	public IReadOnlyList<T> Objects { get; internal init; } = default!;
 }

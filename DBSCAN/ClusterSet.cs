@@ -9,10 +9,10 @@ public class ClusterSet<T>
 	/// <summary>
 	/// A list of the clusters that have been identified.
 	/// </summary>
-	public IReadOnlyList<Cluster<T>> Clusters { get; internal set; } = default!;
+	public IReadOnlyList<Cluster<T>> Clusters { get; internal init; } = default!;
 
 	/// <summary>
 	/// A list of the items that were not identified as being part of a cluster.
 	/// </summary>
-	public IReadOnlyList<T> UnclusteredObjects { get; internal set; } = default!;
+	public IReadOnlyList<T> UnclusteredObjects { get; internal init; } = default!;
 }
