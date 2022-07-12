@@ -27,6 +27,8 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <IsPackable>true</IsPackable>
 	</PropertyGroup>
 
 	<ItemGroup>
